@@ -23,9 +23,9 @@ class MainActivity : AppCompatActivity() {
         kalendarz.minDate = System.currentTimeMillis() // ustalenie minimalnej daty
         kalendarz.maxDate = System.currentTimeMillis() + (kalendarz.maxDate - System.currentTimeMillis())// ustalanie maxymalnej daty
 
-        // deklaracja zmiennych przechowujących date odjazdu i przyjazdu
-        var data_odjazdu : Long
-        var data_przyjazdu : Long
+        // Inicjajcja zmiennych przechowujących date odjazdu i przyjazdu
+        var data_odjazdu = 0L
+        var data_przyjazdu = 0L
 
         // pobieranie od uzytkowanika zaznaczonych pol odjazu i przyjzadu
         button_odjazd.setOnClickListener {
@@ -34,6 +34,9 @@ class MainActivity : AppCompatActivity() {
 
         button_powrot.setOnClickListener {
             data_przyjazdu = kalendarz.date
+
+            if (data_odjazdu != null)
+                text_wynik.text = (CalcDays(data_przyjazdu) - CalcDays(data_odjazdu)).toString()
         }
     }
 }
