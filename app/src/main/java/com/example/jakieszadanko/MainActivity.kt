@@ -32,5 +32,14 @@ class MainActivity : AppCompatActivity() {
         var kalendarz_zaznaczone = kalendarz.date // zaznaczona data
         kalendarz.minDate = System.currentTimeMillis() // ustalenie minimalnej daty
         kalendarz.maxDate = System.currentTimeMillis() + (kalendarz.maxDate - System.currentTimeMillis())// ustalanie maxymalnej daty
+
+        // deklaracja zmiennych przechowujących date odjazdu i przyjazdu
+        var data_odjazdu : Long
+        var data_przyjazdu : Long
     }
+}
+
+fun CalcDays(time : Long):Int
+{
+    return  (time/86400000).toInt();
 }
