@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/textView_data_powrotu3"
+        android:id="@+id/textView_data_odjazdu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Ustal datę powrotu"
@@ -31,20 +31,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.037" />
 
-    <Button
-        android:id="@+id/button_data_powrotu"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        app:circularflow_radiusInDP="100"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.881"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699"
-        tools:ignore="TouchTargetSizeCheck"
-        tools:text="wybierz" />
-
     <CalendarView
         android:id="@+id/calendarView_main"
         android:layout_width="wrap_content"
@@ -56,19 +42,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.206" />
-
-    <Button
-        android:id="@+id/button_data_wyjazdu"
-        android:layout_width="150dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.114"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.699"
-        tools:ignore="TouchTargetSizeCheck"
-        tools:text="Wybierz" />
 
     <TextView
         android:id="@+id/textView_data_powrotu"
@@ -96,6 +69,32 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.762" />
+        app:layout_constraintVertical_bias="0.793" />
+
+    <Button
+        android:id="@+id/button_powrot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150sp"
+        android:text="Wybierz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.881"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.701" />
+
+    <Button
+        android:id="@+id/button_odjazd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:width="150sp"
+        android:text="Wybierz"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.701" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
