@@ -2,9 +2,13 @@ package com.example.jakieszadanko
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.format.DateUtils
 import android.widget.Button
 import android.widget.CalendarView
 import android.widget.TextView
+import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.Date
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,5 +20,7 @@ class MainActivity : AppCompatActivity() {
         var button_powrot = findViewById<Button>(R.id.button_data_powrotu)
         var kalendar_view = findViewById<CalendarView>(R.id.calendarView_main)
         var text_wynik = findViewById<TextView>(R.id.textView_wynik)
+
+
     }
 }
