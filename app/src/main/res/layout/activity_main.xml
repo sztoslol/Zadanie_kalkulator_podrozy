@@ -34,7 +34,7 @@
     <Button
         android:id="@+id/button_data_powrotu"
         android:layout_width="150dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         app:circularflow_radiusInDP="100"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,6 +49,7 @@
         android:id="@+id/calendarView_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:maxDate="12/06/2024"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -59,7 +60,7 @@
     <Button
         android:id="@+id/button_data_wyjazdu"
         android:layout_width="150dp"
-        android:layout_height="46dp"
+        android:layout_height="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.114"
