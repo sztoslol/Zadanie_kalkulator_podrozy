@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.CalendarView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import java.text.DateFormat
 import java.util.Date
@@ -31,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         // Inicjajcja zmiennych przechowujących date odjazdu i przyjazdu
         var data_odjazdu = mutableListOf<Int>(0,0,0)
         var data_powrot = mutableListOf<Int>(0,0,0)
-        var temp_date = mutableListOf<Int>(0,0,0)
+        var temp_date = mutableListOf<Int>(0,0,0)   //Do naprawy!
 
         // Pobieranie daty za każdą zmianą
         kalendarz.setOnDateChangeListener { _, i, i2, i3 ->
@@ -54,11 +55,17 @@ class MainActivity : AppCompatActivity() {
             data_powrot[2] = temp_date[2]
             label_powrot.text = data_powrot[0].toString()+"-"+data_powrot[1].toString()+"-"+data_powrot[2].toString()
 
-
+            // Jeśli obie daty nie są puste program wyświetli czas podróży w dniach
+            if (data_odjazdu[0] != 0 && data_powrot[0] != 0)
+                if(data_odjazdu[1] > data_powrot[1] || data_odjazdu[2] > data_powrot[2])
+                    text_wynik.text = "Nie możesz wyjechać później niż wrócisz!"
+                else
+                    text_wynik.text = "Twoja podroż potrwa "+ CalcDays(data_odjazdu, data_powrot).absoluteValue.toString() + " dni"
         }
     }
 }
 
+// Funkcja obliczająca różnice między datami
 fun CalcDays(Date1 : List<Int>, Date2 : List<Int>):Int
 {
     var temp1 = (Date1[0] * 360) + (Date1[1] * 30) + Date1[2]
