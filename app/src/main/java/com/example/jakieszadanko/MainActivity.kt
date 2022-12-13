@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.annotation.RequiresApi
 import java.text.DateFormat
 import java.text.SimpleDateFormat
+import java.time.LocalDate
+import java.time.ZoneId
 import java.util.Date
 import kotlin.math.absoluteValue
 
@@ -28,13 +30,12 @@ class MainActivity : AppCompatActivity() {
         var label_powrot = findViewById<TextView>(R.id.textView_zaznaczona_data_przyjazd)
 
         kalendarz.minDate = System.currentTimeMillis() // ustalenie minimalnej daty
-        kalendarz.maxDate = System.currentTimeMillis() + (kalendarz.maxDate - System.currentTimeMillis())// ustalanie maxymalnej daty
-        var temp_start_date =  MilliToDate(kalendarz.date)
+        kalendarz.maxDate = LocalDate.now().plusYears(2).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()// ustalanie maxymalnej daty
 
         // Inicjajcja zmiennych przechowujących date odjazdu i przyjazdu
         var data_odjazdu = mutableListOf<Int>(0,0,0)
         var data_powrot = mutableListOf<Int>(0,0,0)
-        var temp_date = mutableListOf<Int>(temp_start_date[0],temp_start_date[1],temp_start_date[2])
+        var temp_date = mutableListOf<Int>(MilliToDate(kalendarz.date)[0],MilliToDate(kalendarz.date)[1],MilliToDate(kalendarz.date)[2])
 
         // Pobieranie daty za każdą zmianą
         kalendarz.setOnDateChangeListener { _, i, i2, i3 ->
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
 
             // Jeśli obie daty nie są puste program wyświetli czas podróży w dniach
             if (data_odjazdu[0] != 0 && data_powrot[0] != 0)
-                if(data_odjazdu[1] > data_powrot[1] || data_odjazdu[2] > data_powrot[2])
+                if(data_odjazdu[2] > data_powrot[2]  && data_odjazdu[1] == data_powrot[1])
                     text_wynik.text = "Nie możesz wyjechać później niż wrócisz!"
                 else
                     text_wynik.text = "Twoja podroż potrwa "+ CalcDays(data_odjazdu, data_powrot).absoluteValue.toString() + " dni"
@@ -80,7 +81,7 @@ fun MilliToDate(milli : Long) : List<Int>
 {
     val date = Date(milli)
     val formatter = SimpleDateFormat("yyyy/MM/dd")
-    val formatedDate = formatter.format(date)
-    val ans = formatedDate.split("/").map { it.toInt() }
+    val formattedDate = formatter.format(date)
+    val ans = formattedDate.split("/").map { it.toInt() }
     return ans;
 }
