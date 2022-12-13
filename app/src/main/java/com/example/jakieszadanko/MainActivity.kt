@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import java.text.DateFormat
+import java.text.SimpleDateFormat
 import java.util.Date
 import kotlin.math.absoluteValue
 
@@ -28,11 +29,12 @@ class MainActivity : AppCompatActivity() {
 
         kalendarz.minDate = System.currentTimeMillis() // ustalenie minimalnej daty
         kalendarz.maxDate = System.currentTimeMillis() + (kalendarz.maxDate - System.currentTimeMillis())// ustalanie maxymalnej daty
+        var temp_start_date =  MilliToDate(kalendarz.date)
 
         // Inicjajcja zmiennych przechowujących date odjazdu i przyjazdu
         var data_odjazdu = mutableListOf<Int>(0,0,0)
         var data_powrot = mutableListOf<Int>(0,0,0)
-        var temp_date = mutableListOf<Int>(0,0,0)   //Do naprawy!
+        var temp_date = mutableListOf<Int>(temp_start_date[0],temp_start_date[1],temp_start_date[2])
 
         // Pobieranie daty za każdą zmianą
         kalendarz.setOnDateChangeListener { _, i, i2, i3 ->
@@ -71,4 +73,14 @@ fun CalcDays(Date1 : List<Int>, Date2 : List<Int>):Int
     var temp1 = (Date1[0] * 360) + (Date1[1] * 30) + Date1[2]
     var temp2 = (Date2[0] * 360) + (Date2[1] * 30) + Date2[2]
     return temp1 - temp2
+}
+
+// Funkcja konwertuje milisekundy do daty
+fun MilliToDate(milli : Long) : List<Int>
+{
+    val date = Date(milli)
+    val formatter = SimpleDateFormat("yyyy/MM/dd")
+    val formatedDate = formatter.format(date)
+    val ans = formatedDate.split("/").map { it.toInt() }
+    return ans;
 }
