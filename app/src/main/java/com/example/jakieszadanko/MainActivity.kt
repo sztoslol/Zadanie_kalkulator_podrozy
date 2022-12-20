@@ -68,10 +68,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     @RequiresApi(Build.VERSION_CODES.O)
-    fun onResume(kalendarz : CalendarView) {
+    override fun onResume() {
         super.onResume()
-        kalendarz.minDate = System.currentTimeMillis()
-        kalendarz.maxDate = LocalDate.now().plusYears(2).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+        findViewById<CalendarView>(R.id.calendarView_main).minDate = System.currentTimeMillis()
+        findViewById<CalendarView>(R.id.calendarView_main).maxDate = LocalDate.now().plusYears(2).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
     }
 }
 
