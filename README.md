@@ -12,4 +12,13 @@ Aplikacja obliczająca długość podróży
 # Niezawodność
 - Aplikacja po uruchomieniu automatycznie ustala zakres dat - Maksymalną, czyli do 2 lat w przyszłość i Milimalną, czyli dziś co blokuje możliwość podróżowania w przeszłość 
 - Aplikacja składa się z jednego okna głownego
-- Podczas zatrzymania działania aplikacja wstrzymuje swoją pracę 
+- Podczas zatrzymania działania aplikacja wstrzymuje swoją pracę
+- Po wznowieniu funkcjonowania aplikacji na nowo ustalany jest przedział dat aby zapobiec sytuacją
+- Aplikacja nie jest priorytetowa i nie wymaga dużej ilości pamięci
+- 'Zabicie aplikacji' powoduje jej zamknięcie. Aplikacja nie zapisuje danych wybranych podróży trwale 
+
+# Wybór środowiska
+- Aplikacja została wykonana w Andorid Studio
+
+# Cykl funkcjonowania
+- onCreate - 
