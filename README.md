@@ -46,3 +46,7 @@ Aplikacja obliczająca długość podróży
 - Aplikacja blokuje wyjazdy w przeszłość oraz w przyszłość od 2 lat w góre
 - Program poprawnie wyświetla wybrane daty przez użytkownika
 - Jeśli użytkownik wybierze datę powrotu a następnie wybierze datę wstecz program wyświetli komunikat o błędzie (Nie możesz wyjechać później niż wrócisz!)
+- Istnieją dwie funkcje pomocnicze 
+  1. Oblicza długość podróży 
+  2. Konwertuje milisekundy do daty wg. formatu ("yyyy/MM/dd")
+- Funkcja onResume jest Overridowana
