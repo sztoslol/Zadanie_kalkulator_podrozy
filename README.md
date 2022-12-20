@@ -25,7 +25,7 @@ Aplikacja obliczająca długość podróży
    - Kod
      * Inicjowana są zmienne do łatwiejszej obsługi layout'u oraz zmienne do przetrzymywania dat
      * Tworzony jest OnDateChangeListener, który modyfikuje zmienną przechowującą wybraną datę
-     * Tworzone są zdarzenia po kliknięciu, po których modyfikowane są zminne z wybranymi datami
+     * Tworzone są zdarzenia po kliknięciu (OnClickListener), po których modyfikowane są zminne z wybranymi datami
      * Jeści obie daty zostały wybrane program automatycznie wyświetli ją na ekranie
    - Działanie aplikacji
      * Program buduje layout
@@ -37,4 +37,12 @@ Aplikacja obliczająca długość podróży
 4. onPause
    - Nie dzieje się nic ważnego
 5. onPause
-   - 
+   - Nie dzieje się nic ważnego
+6. onDestroy
+   - Nie dzieje się nic ważnego
+7. 'Zabicie' aplikacji powoduje jej zamknięcie. Aplikacja nie zapisuje danych wybranych podróży trwale 
+
+# Weryfikacja i testowanie
+- Aplikacja blokuje wyjazdy w przeszłość oraz w przyszłość od 2 lat w góre
+- Program poprawnie wyświetla wybrane daty przez użytkownika
+- Jeśli użytkownik wybierze datę powrotu a następnie wybierze datę wstecz program wyświetli komunikat o błędzie (Nie możesz wyjechać później niż wrócisz!)
