@@ -21,4 +21,20 @@ Aplikacja obliczająca długość podróży
 - Aplikacja została wykonana w Andorid Studio
 
 # Cykl funkcjonowania
-- onCreate - 
+1. onCreate
+   - Kod
+     * Inicjowana są zmienne do łatwiejszej obsługi layout'u oraz zmienne do przetrzymywania dat
+     * Tworzony jest OnDateChangeListener, który modyfikuje zmienną przechowującą wybraną datę
+     * Tworzone są zdarzenia po kliknięciu, po których modyfikowane są zminne z wybranymi datami
+     * Jeści obie daty zostały wybrane program automatycznie wyświetli ją na ekranie
+   - Działanie aplikacji
+     * Program buduje layout
+     * Ustalany jest przedział maksymalych dat
+2. onStart
+   - Nie dzieje się nic ważnego
+3. onResume
+   - Aplikacja odświeża zakres dat
+4. onPause
+   - Nie dzieje się nic ważnego
+5. onPause
+   - 
