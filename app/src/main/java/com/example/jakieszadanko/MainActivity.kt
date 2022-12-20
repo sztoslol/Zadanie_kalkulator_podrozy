@@ -66,6 +66,13 @@ class MainActivity : AppCompatActivity() {
                     text_wynik.text = "Twoja podroż potrwa "+ CalcDays(data_odjazdu, data_powrot).absoluteValue.toString() + " dni"
         }
     }
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    fun onResume(kalendarz : CalendarView) {
+        super.onResume()
+        kalendarz.minDate = System.currentTimeMillis()
+        kalendarz.maxDate = LocalDate.now().plusYears(2).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+    }
 }
 
 // Funkcja obliczająca różnice między datami
