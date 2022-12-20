@@ -48,6 +48,12 @@ class MainActivity : AppCompatActivity() {
             data_odjazdu[1] = temp_date[1]
             data_odjazdu[2] = temp_date[2]
             label_odjazd.text = data_odjazdu[0].toString()+"-"+data_odjazdu[1].toString()+"-"+data_odjazdu[2].toString()
+
+            if (data_odjazdu[0] != 0 && data_powrot[0] != 0)
+                if(data_odjazdu[2] > data_powrot[2]  && data_odjazdu[1] == data_powrot[1])
+                    text_wynik.text = "Nie możesz wyjechać później niż wrócisz!"
+                else
+                    text_wynik.text = "Twoja podroż potrwa "+ CalcDays(data_odjazdu, data_powrot).absoluteValue.toString() + " dni"
         }
 
         button_powrot.setOnClickListener {
